@@ -66,4 +66,27 @@ const deleteToDoById = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { createToDo, getAllToDos, updateToDoById, deleteToDoById };
+// delete any toDo by toDo id
+// @route: DELETE /api/toDo/:id
+
+const deleteAll = asyncHandler(async (req, res) => {
+  try {
+    const result = await toDoService.deleteAll();
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ error: 'ToDos not found' });
+    }
+    res.status(200).json({ message: 'ToDos deleted successfully' });
+  } catch (error) {
+    res.status(400).json({
+      error: 'Failed to delete toDos: ' + error.message,
+    });
+  }
+});
+
+module.exports = {
+  createToDo,
+  getAllToDos,
+  updateToDoById,
+  deleteToDoById,
+  deleteAll,
+};

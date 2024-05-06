@@ -41,6 +41,11 @@ class ToDoService {
     const result = await ToDo.deleteOne({ _id: id });
     return result;
   }
+
+  async deleteAll() {
+    const result = await ToDo.deleteMany();
+    return result;
+  }
 }
 
 module.exports = new ToDoService();

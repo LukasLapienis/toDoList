@@ -6,6 +6,7 @@ const {
   getAllToDos,
   updateToDoById,
   deleteToDoById,
+  deleteAll,
 } = require('../controllers/toDoController.js');
 
 // @ /api/toDo
@@ -14,5 +15,6 @@ router.post('/', createToDo);
 router.get('/', getAllToDos);
 router.put('/:id', updateToDoById);
 router.delete('/:id', deleteToDoById);
+router.delete('/', deleteAll);
 
 module.exports = router;
