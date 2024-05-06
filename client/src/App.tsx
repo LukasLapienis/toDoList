@@ -12,7 +12,8 @@ function App() {
   const [updateTime, setUpdateTime] = useState(Date.now());
   const [create, setCreate] = useState(Object);
   const [editedTask, setEditedTask] = useState<DataInterface>(Object);
-  const [taskToDelete, setTaskToDelete] = useState<string>('');
+  const [taskToDelete, setTaskToDelete] = useState('');
+  const [deleteAll, setDeleteAll] = useState(false);
 
   useEffect(() => {
     axios
@@ -47,18 +48,27 @@ function App() {
     if (taskToDelete === '') {
       return;
     }
-    console.log(taskToDelete);
     axios
       .delete(`http://localhost:5000/api/toDo/${taskToDelete}`)
       .then(() => setUpdateTime(Date.now()));
   }, [taskToDelete]);
+
+  useEffect(() => {
+    if (deleteAll === false) {
+      return;
+    }
+    axios.delete('http://localhost:5000/api/toDo/').then(() => {
+      setUpdateTime(Date.now());
+      setDeleteAll(false);
+    });
+  }, [deleteAll]);
 
   return (
     <>
       <Header
         setDisplayType={setDisplayType}
         displayType={displayType}
-        setData={setData}
+        setDeleteAll={setDeleteAll}
       />
       <Display
         displayType={displayType}

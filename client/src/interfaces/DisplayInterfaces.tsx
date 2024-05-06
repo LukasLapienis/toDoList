@@ -12,7 +12,7 @@ export type DisplayType = 'Table View' | 'List View';
 export interface HeaderProps {
   setDisplayType: React.Dispatch<React.SetStateAction<DisplayType>>;
   displayType: DisplayType;
-  setData: React.Dispatch<React.SetStateAction<[] | DataInterface[]>>;
+  setDeleteAll: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface TableDisplayProps {
