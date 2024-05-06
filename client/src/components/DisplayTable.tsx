@@ -1,6 +1,6 @@
 import { TableDisplayProps } from '../interfaces/DisplayInterfaces';
 
-export const DisplayTable: React.FC<TableDisplayProps> = () => {
+export const DisplayTable: React.FC<TableDisplayProps> = ({}) => {
   return (
     <table>
       <thead>
