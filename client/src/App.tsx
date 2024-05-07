@@ -17,7 +17,9 @@ function App() {
 
   useEffect(() => {
     axios
-      .get<{ toDos: DataInterface[] | [] }>('http://localhost:5000/api/toDo')
+      .get<{ toDos: DataInterface[] | [] }>(
+        'https://todolist-api-aw85.onrender.com/api/toDo'
+      )
       .then((res) => {
         setData(res.data.toDos);
       })
@@ -31,7 +33,7 @@ function App() {
       return;
     }
     axios
-      .post('http://localhost:5000/api/toDo', create)
+      .post('https://todolist-api-aw85.onrender.com/api/toDo', create)
       .then(() => setUpdateTime(Date.now()));
   }, [create]);
 
@@ -40,7 +42,10 @@ function App() {
       return;
     }
     axios
-      .put(`http://localhost:5000/api/toDo/${editedTask._id}`, editedTask)
+      .put(
+        `https://todolist-api-aw85.onrender.com/api/toDo/${editedTask._id}`,
+        editedTask
+      )
       .then(() => setUpdateTime(Date.now()));
   }, [editedTask]);
 
@@ -49,7 +54,7 @@ function App() {
       return;
     }
     axios
-      .delete(`http://localhost:5000/api/toDo/${taskToDelete}`)
+      .delete(`https://todolist-api-aw85.onrender.com/api/toDo/${taskToDelete}`)
       .then(() => setUpdateTime(Date.now()));
   }, [taskToDelete]);
 
@@ -58,10 +63,12 @@ function App() {
       return;
     }
     if (data.length > 0) {
-      axios.delete('http://localhost:5000/api/toDo/').then(() => {
-        setUpdateTime(Date.now());
-        setDeleteAll(false);
-      });
+      axios
+        .delete('https://todolist-api-aw85.onrender.com/api/toDo/')
+        .then(() => {
+          setUpdateTime(Date.now());
+          setDeleteAll(false);
+        });
     }
   }, [deleteAll]);
 
