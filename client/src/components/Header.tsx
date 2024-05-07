@@ -1,7 +1,7 @@
 import { HeaderProps } from '../interfaces/DisplayInterfaces';
 
 export const Header: React.FC<HeaderProps> = ({
-  setData,
+  setDeleteAll,
   setDisplayType,
   displayType,
 }) => {
@@ -12,7 +12,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   const handleClearList = () => {
-    setData([]);
+    setDeleteAll(true);
   };
 
   return (

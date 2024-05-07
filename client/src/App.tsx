@@ -57,10 +57,12 @@ function App() {
     if (deleteAll === false) {
       return;
     }
-    axios.delete('http://localhost:5000/api/toDo/').then(() => {
-      setUpdateTime(Date.now());
-      setDeleteAll(false);
-    });
+    if (data.length > 0) {
+      axios.delete('http://localhost:5000/api/toDo/').then(() => {
+        setUpdateTime(Date.now());
+        setDeleteAll(false);
+      });
+    }
   }, [deleteAll]);
 
   return (
