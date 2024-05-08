@@ -39,7 +39,9 @@ function App() {
     if (Object.keys(editedTask).length === 0) {
       return;
     }
-
+    setData((prev) =>
+      prev.map((todo) => (todo._id === editedTask._id ? editedTask : todo))
+    );
     axios.put(
       `https://todolist-api-aw85.onrender.com/api/toDo/${editedTask._id}`,
       editedTask
