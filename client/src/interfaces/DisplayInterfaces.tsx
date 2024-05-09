@@ -1,6 +1,8 @@
 export interface NewTaskInterface {
   task: string;
   when: string;
+  isDone?: boolean;
+  isPriority?: boolean;
 }
 
 export interface DataInterface extends NewTaskInterface {

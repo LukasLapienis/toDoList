@@ -12,7 +12,7 @@ const toDoSchema = new mongoose.Schema(
     },
     isPriority: {
       type: Boolean,
-      required: true,
+      default: false,
     },
     isDone: {
       type: Boolean,

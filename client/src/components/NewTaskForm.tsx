@@ -7,7 +7,7 @@ export const NewTaskForm: React.FC<NewTaskFormProps> = ({ setCreate }) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setCreate({ task: task, when: when });
+    setCreate({ task: task, when: when, isPriority: false, isDone: false });
     alert('new task added');
   };
 

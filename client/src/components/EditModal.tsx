@@ -16,7 +16,7 @@ export const EditModal: React.FC<EditModalProps> = ({
 
   const handleEdit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setEditedTask({ task: task, when: when, _id: taskToEdit._id });
+    setEditedTask({ _id: taskToEdit._id, task: task, when: when });
     setIsModalOpen(false);
     alert('updated');
   };
