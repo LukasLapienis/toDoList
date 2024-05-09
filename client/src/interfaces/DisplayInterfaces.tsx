@@ -17,9 +17,8 @@ export interface HeaderProps {
 
 export interface TableDisplayProps {
   data: DataInterface[];
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setTaskToEdit: React.Dispatch<React.SetStateAction<DataInterface>>;
-  setTaskToDelete: React.Dispatch<React.SetStateAction<string>>;
+  handleEdit: (toDoId: string) => void;
+  handleDelete: (toDoId: string) => void;
 }
 
 export interface DisplayProps {

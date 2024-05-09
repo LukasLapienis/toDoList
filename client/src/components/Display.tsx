@@ -15,6 +15,16 @@ export const Display: React.FC<DisplayProps> = ({
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [taskToEdit, setTaskToEdit] = useState<DataInterface>(Object);
 
+  const handleEdit = (toDoId: string) => {
+    setIsModalOpen(true);
+    const toDo = data.find((toDo) => toDo._id === toDoId);
+    toDo === undefined ? console.log('Task Not Found') : setTaskToEdit(toDo);
+  };
+
+  const handleDelete = (toDoId: string) => {
+    setTaskToDelete(toDoId);
+  };
+
   return (
     <main className="flex h-4/5 w-full min-w-fit max-w-4xl flex-col justify-between rounded-2xl bg-gray-600">
       {data === null ? (
@@ -22,16 +32,14 @@ export const Display: React.FC<DisplayProps> = ({
       ) : displayType === 'List View' ? (
         <DisplayTable
           data={data}
-          setIsModalOpen={setIsModalOpen}
-          setTaskToEdit={setTaskToEdit}
-          setTaskToDelete={setTaskToDelete}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
         />
       ) : (
         <DisplayList
           data={data}
-          setIsModalOpen={setIsModalOpen}
-          setTaskToEdit={setTaskToEdit}
-          setTaskToDelete={setTaskToDelete}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
         />
       )}
       {isModalOpen && (
