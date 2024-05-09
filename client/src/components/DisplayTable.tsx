@@ -17,7 +17,7 @@ export const DisplayTable: React.FC<TableDisplayProps> = ({
       </thead>
       <tbody>
         {data.map((todo) => (
-          <tr>
+          <tr key={todo._id}>
             <td>
               <input type="checkbox" className=" cursor-pointer" />
             </td>

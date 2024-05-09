@@ -1,14 +1,15 @@
 const ToDo = require('../models/ToDo');
 
 class ToDoService {
-  async createToDo(task, when) {
-    if (!task || !when) {
+  async createToDo(task, when, isPriority) {
+    if (!task || !when || isPriority) {
       throw new Error('Please fill all fields');
     }
 
     const toDo = await ToDo.create({
       task: task,
       when: when,
+      isPriority,
     });
 
     return toDo;
@@ -31,6 +32,14 @@ class ToDoService {
 
     if (updates.when) {
       toDo.when = updates.when;
+    }
+
+    if (isPriority) {
+      toDo.isPriority = updates.isPriority;
+    }
+
+    if (isDone) {
+      toDo.isDone = updates.isDone;
     }
 
     const result = await toDo.save();

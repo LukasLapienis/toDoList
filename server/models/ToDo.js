@@ -10,6 +10,14 @@ const toDoSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    isPriority: {
+      type: Boolean,
+      required: true,
+    },
+    isDone: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
