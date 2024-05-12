@@ -17,12 +17,22 @@ export const Display: React.FC<DisplayProps> = ({
 
   const handleIsDone = (toDoId: string) => {
     const toDo = data.find((toDo) => toDo._id === toDoId);
-    toDo === undefined ? console.log('Task Not Found') : console.log(toDo);
+    if (toDo === undefined) {
+      console.log('Task Not Found');
+    } else {
+      toDo.isDone = !toDo.isDone;
+      setEditedTask(toDo);
+    }
   };
 
   const handleIsPriority = (toDoId: string) => {
     const toDo = data.find((toDo) => toDo._id === toDoId);
-    toDo === undefined ? console.log('Task Not Found') : console.log(toDo);
+    if (toDo === undefined) {
+      console.log('Task Not Found');
+    } else {
+      toDo.isPriority = !toDo.isPriority;
+      setEditedTask(toDo);
+    }
   };
 
   const handleEdit = (toDoId: string) => {

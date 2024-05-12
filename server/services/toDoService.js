@@ -35,11 +35,11 @@ class ToDoService {
       toDo.when = updates.when;
     }
 
-    if (isPriority) {
+    if (updates.isPriority) {
       toDo.isPriority = updates.isPriority;
     }
 
-    if (isDone) {
+    if (updates.isDone) {
       toDo.isDone = updates.isDone;
     }
 

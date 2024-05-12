@@ -16,15 +16,13 @@ export const DisplayTable: React.FC<TableDisplayProps> = ({
         </tr>
       </thead>
       <tbody>
-        {data.map((todo) => (
-          <tr key={todo._id}>
+        {data.map((todo, i) => (
+          <tr key={i}>
             <td>
               <input type="checkbox" className=" cursor-pointer" />
-            </td>
-            <td>
               <input type="checkbox" className=" cursor-pointer" />
+              {todo.task}
             </td>
-            <td>{todo.task}</td>
             <td>{todo.when}</td>
             <td>
               <button onClick={() => handleEdit(todo._id)}>Edit</button>

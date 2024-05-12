@@ -9,23 +9,23 @@ export const DisplayList: React.FC<TableDisplayProps> = ({
 }) => {
   return (
     <ul className="flex flex-col gap-2 p-4">
-      {data.map((todo) => (
+      {data.map((todo, i) => (
         <li
-          key={todo._id}
+          key={i}
           className="flex justify-between gap-1 rounded-lg border-2 border-gray-500 p-2 hover:bg-gray-500"
         >
           <div className="flex gap-2">
             <input
               type="checkbox"
               className=" cursor-pointer"
-              checked={todo.isDone ? true : false}
-              onChange={() => handleIsDone(todo._id)}
+              defaultChecked={todo.isDone}
+              onClick={() => handleIsDone(todo._id)}
             />
             <input
               type="checkbox"
               className=" cursor-pointer"
-              checked={todo.isPriority ? true : false}
-              onChange={() => handleIsPriority(todo._id)}
+              defaultChecked={todo.isPriority}
+              onClick={() => handleIsPriority(todo._id)}
             />
             <div>{todo.task}</div>
           </div>
