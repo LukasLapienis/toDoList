@@ -1,7 +1,7 @@
 const ToDo = require('../models/ToDo');
 
 class ToDoService {
-  async createToDo(task, when) {
+  async createToDo(task, when, isDone, isPriority) {
     if (!task || !when) {
       throw new Error('Please fill all fields');
     }
@@ -9,6 +9,8 @@ class ToDoService {
     const toDo = await ToDo.create({
       task: task,
       when: when,
+      isDone: isDone,
+      isPriority: isPriority,
     });
 
     return toDo;

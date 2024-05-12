@@ -15,10 +15,15 @@ export const Display: React.FC<DisplayProps> = ({
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [taskToEdit, setTaskToEdit] = useState<DataInterface>(Object);
 
-  // const handleIsDone = (toDoId: string) => {
-  //   const toDo = data.find((toDo) => toDo._id === toDoId);
-  //   setEditedTask(toDo)
-  // };
+  const handleIsDone = (toDoId: string) => {
+    const toDo = data.find((toDo) => toDo._id === toDoId);
+    toDo === undefined ? console.log('Task Not Found') : console.log(toDo);
+  };
+
+  const handleIsPriority = (toDoId: string) => {
+    const toDo = data.find((toDo) => toDo._id === toDoId);
+    toDo === undefined ? console.log('Task Not Found') : console.log(toDo);
+  };
 
   const handleEdit = (toDoId: string) => {
     setIsModalOpen(true);
@@ -39,12 +44,16 @@ export const Display: React.FC<DisplayProps> = ({
           data={data}
           handleEdit={handleEdit}
           handleDelete={handleDelete}
+          handleIsDone={handleIsDone}
+          handleIsPriority={handleIsPriority}
         />
       ) : (
         <DisplayList
           data={data}
           handleEdit={handleEdit}
           handleDelete={handleDelete}
+          handleIsDone={handleIsDone}
+          handleIsPriority={handleIsPriority}
         />
       )}
       {isModalOpen && (

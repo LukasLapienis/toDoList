@@ -5,10 +5,10 @@ const toDoService = require('../services/toDoService');
 // @route: POST /api/toDo
 
 const createToDo = asyncHandler(async (req, res) => {
-  const { task, when } = req.body;
+  const { task, when, isDone, isPriority } = req.body;
 
   try {
-    const toDo = await toDoService.createToDo(task, when);
+    const toDo = await toDoService.createToDo(task, when, isDone, isPriority);
     res.status(201).json({ message: 'task created successfully', toDo });
   } catch (error) {
     res.status(400).json({ error: 'task creation failed: ' + error.message });

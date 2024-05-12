@@ -31,6 +31,7 @@ function App() {
     if (Object.keys(create).length === 0) {
       return;
     }
+    console.log(create);
     setData((prev) => [...prev, create]);
     axios.post('https://todolist-api-aw85.onrender.com/api/toDo', create);
   }, [create]);

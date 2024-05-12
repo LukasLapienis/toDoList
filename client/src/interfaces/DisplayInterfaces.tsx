@@ -1,8 +1,8 @@
 export interface NewTaskInterface {
   task: string;
   when: string;
-  isDone?: boolean;
-  isPriority?: boolean;
+  isDone: boolean;
+  isPriority: boolean;
 }
 
 export interface DataInterface extends NewTaskInterface {
@@ -21,6 +21,8 @@ export interface TableDisplayProps {
   data: DataInterface[];
   handleEdit: (toDoId: string) => void;
   handleDelete: (toDoId: string) => void;
+  handleIsDone: (toDoId: string) => void;
+  handleIsPriority: (toDoId: string) => void;
 }
 
 export interface DisplayProps {
